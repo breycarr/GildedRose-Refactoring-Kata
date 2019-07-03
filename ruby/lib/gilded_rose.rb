@@ -9,7 +9,11 @@ class GildedRose
       if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert"
         if item.quality > 0
           if item.name != "Sulfuras, Hand of Ragnaros"
-            item.quality = item.quality - 1
+            if item.name.include?("Conjured")
+              item.quality -= 2
+            else
+              item.quality -= 1
+            end
           end
         end
       else
